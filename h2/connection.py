@@ -1750,9 +1750,6 @@ class H2Connection(object):
             ConnectionInputs.RECV_GOAWAY
         )
 
-        # Clear the outbound data buffer: we cannot send further data now.
-        self.clear_outbound_data_buffer()
-
         # Fire an appropriate ConnectionTerminated event.
         new_event = ConnectionTerminated()
         new_event.error_code = _error_code_from_int(frame.error_code)
